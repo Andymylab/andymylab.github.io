@@ -1,1 +1,263 @@
-welcome!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Personal Portfolio</title>
+    <!-- 引入现代化字体 Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- 引入 FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 全局样式与变量 */
+        :root {
+            --primary-color: #6366f1; /* 现代靛蓝色 */
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4ebf5 100%);
+            --text-main: #334155;
+            --text-light: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        /* 主体卡片容器 (玻璃拟物风) */
+        .portfolio-container {
+            background: var(--card-bg);
+            max-width: 800px;
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* 头部介绍区 */
+        .header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #6366f1, #a855f7);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3rem;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* 关于我 / 简介区 */
+        .about-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 兴趣与特长区 */
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+            border-color: var(--primary-color);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #334155;
+        }
+
+        .skill-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* 社交与联系链接 */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 600px) {
+            .portfolio-container { padding: 2rem 1.5rem; }
+            h1 { font-size: 2rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        
+        <!-- Header Section -->
+        <header class="header-section">
+            <!-- 头像占位，您可以将里面的图标换成您的实际照片，使用 <img src="your-photo.jpg" class="profile-avatar"> -->
+            <div class="profile-avatar">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <h1 id="name">Hi, I'm Andy</h1>
+            <div class="subtitle">High School Student & Artist</div>
+        </header>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <p>
+                Based in Toronto. I'm a passionate high school student dedicated to exploring the intersection of arts, academics, and community building. Always curious, constantly learning, and striving to make a positive impact through my passions.
+            </p>
+        </section>
+
+        <!-- Interests & Specialties Section -->
+        <h2 class="section-title">Interests & Specialties</h2>
+        <div class="skills-grid">
+            
+            <!-- Card 1: Music/Piano -->
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-music"></i></div>
+                <div class="skill-title">Classical Piano</div>
+                <div class="skill-desc">Award-winning performer focusing on technique, musicality, and sharing classical arts.</div>
+            </div>
+
+            <!-- Card 2: Tech/Coding -->
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="skill-title">Technology</div>
+                <div class="skill-desc">Exploring AI and Cloud computing, coding logic, and projects on GitHub.</div>
+            </div>
+
+            <!-- Card 3: Community/Volunteer -->
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <div class="skill-title">Community Service</div>
+                <div class="skill-desc">Engaging with the local community through music outreach and volunteering.</div>
+            </div>
+        </div>
+
+        <!-- Social Links Section -->
+        <div class="social-links">
+            <!-- Email -->
+            <a href="mailto:zixin.andy.wang@gmail.com" class="social-btn" title="Email Me">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/" class="social-btn" title="My GitHub" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <!-- YouTube (For Piano Performances) -->
+            <a href="https://youtube.com/" class="social-btn" title="My YouTube" target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
